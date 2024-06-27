@@ -1,0 +1,97 @@
+---
+R1:
+  as: 1
+  name: R1
+  router_id: "1.1.1.1"
+  interfaces:
+    - name: Loopback0
+      ip: "1.1.1.1 255.255.255.255"
+      description: "For_BGP_peering"
+    - name: Gi1
+      ip: "10.0.0.1 255.255.255.252"
+      description: "P2P_R2"
+    - name: Gi2
+      ip: "150.1.1.1 255.255.255.0"
+      description: "P2P_R4"
+    - name: Gi4
+      ip: "10.1.0.2 255.255.255.252"
+      description: "P2P_INET"
+  bgp_peers:
+    - ip: "10.0.0.2"
+      as: 2
+    - ip: "150.1.1.2"
+      as: 4
+    - ip: "10.1.0.1"
+      as: 100
+R2:
+  as: 2
+  name: R2
+  router_id: "2.2.2.2"
+  interfaces:
+    - name: Loopback0
+      ip: "2.2.2.2 255.255.255.255"
+      description: "For_BGP_peering"
+    - name: e0/1
+      ip: "10.0.0.2 255.255.255.252"
+      description: "P2P_R1"
+    - name: e0/0
+      ip: "10.0.0.9 255.255.255.252"
+      description: "P2P_R3"
+  bgp_peers:
+    - ip: "10.0.0.1"
+      as: 1
+    - ip: "10.0.0.10"
+      as: 3
+R3:
+  as: 3
+  name: R3
+  router_id: "3.3.3.3"
+  interfaces:
+    - name: Loopback0
+      ip: "3.3.3.3 255.255.255.255"
+      description: "For_BGP_peering"
+    - name: e0/0
+      ip: "10.1.0.5 255.255.255.252"
+      description: "P2P_INET2"
+    - name: e0/1
+      ip: "10.0.0.18 255.255.255.252"
+      description: "P2P_R4"
+    - name: e0/2
+      ip: "10.0.0.10 255.255.255.252"
+      description: "P2P_R2"
+    - name: s1/0
+      ip: "10.0.0.14 255.255.255.252"
+      description: "P2P_R4_serial"
+  bgp_peers:
+    - ip: "10.0.0.9"
+      as: 2
+    - ip: "10.1.0.6"
+      as: 200
+    - ip: "10.0.0.17"
+      as: 4
+    - ip: "10.0.0.13"
+      as: 4
+R4:
+  as: 4
+  name: R4
+  router_id: "4.4.4.4"
+  interfaces:
+    - name: Loopback0
+      ip: "4.4.4.4 255.255.255.255"
+      description: "For_BGP_peering"
+    - name: e0/1
+      ip: "10.0.0.17 255.255.255.252"
+      description: "P2P_R3"
+    - name: e0/2
+      ip: "150.1.1.2 255.255.255.0"
+      description: "P2P_R1"
+    - name: s1/0
+      ip: "10.0.0.13 255.255.255.252"
+      description: "P2P_R3_serial"
+  bgp_peers:
+    - ip: "150.1.1.1"
+      as: 1
+    - ip: "10.0.0.18"
+      as: 3
+    - ip: "10.0.0.14"
+      as: 3

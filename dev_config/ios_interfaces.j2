@@ -1,0 +1,6 @@
+{%- for interface in interfaces %}
+interface {{interface.name}}
+ no shutdown
+ ip address {{interface.ip}}
+ description {{interface.description}}
+{%- endfor %}

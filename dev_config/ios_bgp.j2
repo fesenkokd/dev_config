@@ -1,0 +1,9 @@
+router bgp {{as}}
+bgp router-id {{router_id}}
+network {{router_id}} mask 255.255.255.255
+{%- for peer in bgp_peers %}
+ no neighbor {{peer.ip}} shutdown
+ neighbor {{peer.ip}} remote-as {{peer.as}}
+ neighbor {{peer.ip}} soft-reconfiguration inbound
+{% endfor %}
+!

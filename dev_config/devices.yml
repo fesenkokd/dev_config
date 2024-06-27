@@ -1,0 +1,57 @@
+---
+R1:
+  - device_type: cisco_ios
+    host: 192.168.100.1
+    username: cisco
+    password: cisco
+    secret: cisco
+    timeout: 3
+    role: bgp_core
+R2:
+  - device_type: cisco_ios
+    host: 192.168.100.2
+    username: cisco
+    password: cisco
+    secret: cisco
+    timeout: 3
+    role: bgp_core
+R3:
+  - device_type: cisco_ios
+    host: 192.168.100.3
+    username: cisco
+    password: cisco
+    secret: cisco
+    timeout: 3
+    role: bgp_core
+R4:
+  - device_type: cisco_ios
+    host: 192.168.100.4
+    username: cisco
+    password: cisco
+    secret: cisco
+    timeout: 3
+    role: bgp_core
+#R6:
+#  - device_type: cisco_ios
+#    host: 192.168.100.6
+#    username: cisco
+#    password: cisco
+#    secret: cisco
+#    timeout: 3
+#    role: ospf_core
+#R7:
+#  - device_type: cisco_ios
+#    host: 192.168.100.7
+#    username: cisco
+#    password: cisco
+#    secret: cisco
+#    timeout: 3
+#    role: ospf_core
+#R8:
+#  - device_type: cisco_ios
+#    host: 192.168.100.8
+#    username: cisco
+#    password: cisco
+#    secret: cisco
+#    timeout: 3
+#    role: ospf_core
